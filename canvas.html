@@ -4,9 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Canvas</title>
   </head>
   <body>
+    <h1>Please record the 'grim' message!</h1>
+    <a href="index.html">👈돌아가기</a>
+    <!--CANVAS-->
     <canvas id="canvas"></canvas>
+
+    <!--option-->
+    <input type="range" id="size" class="input-range" min="1" max="10" value="5" step="0.1" />
+    <label for="upload">
+      이미지 업로드
+      <input type="file" id="upload" class="input-file" />
+    </label>
+
+    <!--btns-->
+    <button class="btn-canvas" id="brush">Brush</button>
+    <button class="btn-canvas" id="spray">Spray</button>
+    <button class="btn-canvas" id="eraser">Eraser</button>
+    <button class="btn-canvas" id="fill">Fill</button>
+    <div class="">
+      <button class="btn-canvas" id="undo">Undo</button>
+      <button class="btn-canvas" id="redo">Redo</button>
+    </div>
+    <button class="btn-canvas" id="clear">Clear</button>
+    <button class="btn-canvas" id="save">Save</button>
+    <button class="btn-canvas" id="record">Record</button>
+
+    <!--color options-->
+    <div class="color-options">
+      <input type="color" id="color" class="select-color" />
+      <div class="color-option" style="background-color: #00b894" data-color="#00b894"></div>
+      <div class="color-option" style="background-color: #00cec9" data-color="#00cec9"></div>
+      <div class="color-option" style="background-color: #0984e3" data-color="#0984e3"></div>
+      <div class="color-option" style="background-color: #6c5ce7" data-color="#6c5ce7"></div>
+      <div class="color-option" style="background-color: #b2bec3" data-color="#b2bec43"></div>
+      <div class="color-option" style="background-color: #fdcb6e" data-color="#fdcb6e"></div>
+      <div class="color-option" style="background-color: #e17055" data-color="#e17055"></div>
+      <div class="color-option" style="background-color: #d63031" data-color="#d63031"></div>
+      <div class="color-option" style="background-color: #e84393" data-color="#e84393"></div>
+      <div class="color-option" style="background-color: #2d3436" data-color="#2d3436"></div>
+    </div>
   </body>
 </html>

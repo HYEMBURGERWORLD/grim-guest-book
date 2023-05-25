@@ -1,6 +1,21 @@
 'use strict';
 
 /** ************************* */
+/**         variable          */
+/** ************************* */
+
+let isDrawing = false;
+
+/** ************************* */
+/**         constant          */
+/** ************************* */
+
+const COLOR_WHITE = 'white';
+
+// btns
+const eraserBtn = document.getElementById('eraser');
+
+/** ************************* */
 /**           canvas          */
 /** ************************* */
 
@@ -14,7 +29,7 @@ canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
 // auto fill white (background color is white!)
-ctx.fillStyle = 'white';
+ctx.fillStyle = COLOR_WHITE;
 ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 ctx.fill();
 
@@ -30,12 +45,6 @@ ctx.lineWidth = brushSize;
 // brush color (default)
 const brushColor = document.getElementById('color').value;
 ctx.strokeStyle = brushColor;
-
-/** ************************* */
-/**         variable          */
-/** ************************* */
-
-let isDrawing = false;
 
 /** ************************* */
 /**         function          */
@@ -61,6 +70,11 @@ function moveBrush(e) {
   ctx.moveTo(e.offsetX, e.offsetY);
 }
 
+// btn handler
+function eraserHandler() {
+  ctx.strokeStyle = COLOR_WHITE;
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -72,3 +86,4 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn handler
+eraserBtn.addEventListener('click', eraserHandler);

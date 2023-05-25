@@ -13,6 +13,11 @@ const CANVAS_HEIGHT = 500;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
+// auto fill white (background color is white!)
+ctx.fillStyle = 'white';
+ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+ctx.fill();
+
 // brush shape (default is round pen)
 const BRUSH_SHAPE = 'round';
 ctx.lineCap = BRUSH_SHAPE;
@@ -35,7 +40,7 @@ let isDrawing = false;
 /** ************************* */
 /**         function          */
 /** ************************* */
-// * Drawing now?
+// Drawing now?
 function startDrawing() {
   isDrawing = true;
 }
@@ -60,8 +65,10 @@ function moveBrush(e) {
 /**       event listner       */
 /** ************************* */
 
-// * Drawing now?
+// Drawing now?
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
+
+// btn handler

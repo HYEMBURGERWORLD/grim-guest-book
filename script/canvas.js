@@ -14,6 +14,7 @@ const COLOR_WHITE = 'white';
 
 // btns
 const eraserBtn = document.getElementById('eraser');
+const clearBtn = document.getElementById('clear');
 
 /** ************************* */
 /**           canvas          */
@@ -75,6 +76,17 @@ function eraserHandler() {
   ctx.strokeStyle = COLOR_WHITE;
 }
 
+function clearHandler() {
+  if (confirm('Do you want All Clear ?')) {
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    // clear -> auto fill
+    ctx.fillStyle = COLOR_WHITE;
+    ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fill();
+  }
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -87,3 +99,4 @@ canvas.addEventListener('mousemove', moveBrush);
 
 // btn handler
 eraserBtn.addEventListener('click', eraserHandler);
+clearBtn.addEventListener('click', clearHandler);

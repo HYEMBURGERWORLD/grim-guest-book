@@ -79,6 +79,11 @@ function eraserHandler() {
   ctx.strokeStyle = COLOR_WHITE;
 }
 
+function changeColorHandler(e) {
+  ctx.fillStyle = e.target.value;
+  ctx.strokeStyle = e.target.value;
+}
+
 function fillHandler() {
   ctx.fillStyle = color.value;
   ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -110,3 +115,4 @@ canvas.addEventListener('mousemove', moveBrush);
 eraserBtn.addEventListener('click', eraserHandler);
 clearBtn.addEventListener('click', clearHandler);
 fillBtn.addEventListener('click', fillHandler);
+color.addEventListener('change', changeColorHandler);

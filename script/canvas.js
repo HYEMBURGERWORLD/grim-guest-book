@@ -19,6 +19,7 @@ const eraserBtn = document.getElementById('eraser');
 const clearBtn = document.getElementById('clear');
 const fillBtn = document.getElementById('fill');
 const saveBtn = document.getElementById('save');
+const uploadBtn = document.getElementById('upload');
 
 /** ************************* */
 /**           canvas          */
@@ -110,6 +111,17 @@ function saveComHandler() {
   a.click();
 }
 
+function uploadComImgHandler(e) {
+  const file = e.target.files[0];
+  const url = URL.createObjectURL(file); // make url
+  const img = new Image(); // <img src = ""/>
+  img.src = url;
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    uploadBtn.value = '';
+  };
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -126,3 +138,4 @@ eraserBtn.addEventListener('click', eraserHandler);
 clearBtn.addEventListener('click', clearHandler);
 fillBtn.addEventListener('click', fillHandler);
 saveBtn.addEventListener('click', saveComHandler);
+uploadBtn.addEventListener('change', uploadComImgHandler);

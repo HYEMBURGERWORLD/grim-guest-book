@@ -18,6 +18,7 @@ const color = document.getElementById('color');
 const eraserBtn = document.getElementById('eraser');
 const clearBtn = document.getElementById('clear');
 const fillBtn = document.getElementById('fill');
+const saveBtn = document.getElementById('save');
 
 /** ************************* */
 /**           canvas          */
@@ -101,6 +102,14 @@ function clearHandler() {
   }
 }
 
+function saveComHandler() {
+  const url = canvas.toDateURL();
+  const a = document.createElement('a');
+  a.href = 'url';
+  a.download = 'unknown.png';
+  a.click();
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -112,7 +121,8 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn
+color.addEventListener('change', changeColorHandler);
 eraserBtn.addEventListener('click', eraserHandler);
 clearBtn.addEventListener('click', clearHandler);
 fillBtn.addEventListener('click', fillHandler);
-color.addEventListener('change', changeColorHandler);
+saveBtn.addEventListener('click', saveComHandler);

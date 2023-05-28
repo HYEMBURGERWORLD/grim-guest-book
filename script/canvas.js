@@ -12,9 +12,12 @@ let isDrawing = false;
 
 const COLOR_WHITE = 'white';
 
+const color = document.getElementById('color');
+
 // btns
 const eraserBtn = document.getElementById('eraser');
 const clearBtn = document.getElementById('clear');
+const fillBtn = document.getElementById('fill');
 
 /** ************************* */
 /**           canvas          */
@@ -76,6 +79,12 @@ function eraserHandler() {
   ctx.strokeStyle = COLOR_WHITE;
 }
 
+function fillHandler() {
+  ctx.fillStyle = color.value;
+  ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.fill();
+}
+
 function clearHandler() {
   if (confirm('Do you want All Clear ?')) {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -97,6 +106,7 @@ canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
-// btn handler
+// btn
 eraserBtn.addEventListener('click', eraserHandler);
 clearBtn.addEventListener('click', clearHandler);
+fillBtn.addEventListener('click', fillHandler);

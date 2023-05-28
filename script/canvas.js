@@ -105,7 +105,7 @@ function clearHandler() {
 function saveComHandler() {
   const url = canvas.toDateURL();
   const a = document.createElement('a');
-  a.href = 'url';
+  a.href = url;
   a.download = 'unknown.png';
   a.click();
 }

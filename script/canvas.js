@@ -12,7 +12,9 @@ let isDrawing = false;
 
 const COLOR_WHITE = 'white';
 
+// color
 const color = document.getElementById('color');
+const colorOptions = Array.from(document.getElementsByClassName('color-option'));
 
 // btns
 const eraserBtn = document.getElementById('eraser');
@@ -122,6 +124,13 @@ function uploadComImgHandler(e) {
   };
 }
 
+function selectColorOptionHandler(e) {
+  const colorOption = e.target.dateset.color;
+  ctx.fillStyle = colorOption;
+  ctx.strokeStyle = colorOption;
+  color.value = colorOption;
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -139,3 +148,6 @@ clearBtn.addEventListener('click', clearHandler);
 fillBtn.addEventListener('click', fillHandler);
 saveBtn.addEventListener('click', saveComHandler);
 uploadBtn.addEventListener('change', uploadComImgHandler);
+colorOptions.forEach((colorOption) => {
+  colorOption.addEventListener('click', selectColorOptionHandler);
+});

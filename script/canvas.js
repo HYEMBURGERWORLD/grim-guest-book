@@ -5,12 +5,17 @@
 /** ************************* */
 
 let isDrawing = false;
+let isSpray = false; // spray
 
 /** ************************* */
 /**         constant          */
 /** ************************* */
 
 const COLOR_WHITE = 'white';
+const BRUSH_SHAPE = 'round';
+
+const CANVAS_WIDTH = 500;
+const CANVAS_HEIGHT = 500;
 
 // color
 const color = document.getElementById('color');
@@ -22,6 +27,8 @@ const clearBtn = document.getElementById('clear');
 const fillBtn = document.getElementById('fill');
 const saveBtn = document.getElementById('save');
 const uploadBtn = document.getElementById('upload');
+const sprayBtn = document.getElementById('spray');
+const brushBtn = document.getElementById('brush');
 
 /** ************************* */
 /**           canvas          */
@@ -31,8 +38,6 @@ const uploadBtn = document.getElementById('upload');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 500;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
@@ -42,7 +47,6 @@ ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 ctx.fill();
 
 // brush shape (default is round pen)
-const BRUSH_SHAPE = 'round';
 ctx.lineCap = BRUSH_SHAPE;
 ctx.lineJoin = BRUSH_SHAPE;
 
@@ -67,15 +71,50 @@ function stopDrawing() {
 }
 
 function moveBrush(e) {
-  if (isDrawing) {
+  if (isDrawing && !isSpray) {
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
+    return;
+  } else if (isDrawing && isSpray) {
+    generateSprayPoints(e);
     return;
   }
 
   // just move
   ctx.beginPath();
   ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+// Brush ?
+function startSpray() {
+  isSpray = true;
+}
+
+function stopSpray() {
+  isSpray = false;
+}
+
+// spray
+function getRandomOffset(radius) {
+  const randomAngle = Math.random() * (2 * Math.PI);
+  const randomRadius = Math.random() * radius;
+
+  return {
+    x: Math.cos(randomAngle) * randomRadius,
+    y: Math.sin(randomRadius) * randomAngle,
+  };
+}
+
+function generateSprayPoints(e) {
+  const amountOfPoints = ctx.lineWidth * 2;
+  for (let i = 0; i < amountOfPoints; i++) {
+    const offset = getRandomOffset(ctx.lineWidth * 2);
+    const x = e.offsetX + offset.x;
+    const y = e.offsetY + offset.y;
+
+    ctx.fillStyle = color.value;
+    ctx.fillRect(x, y, 1, 1);
+  }
 }
 
 // btn handler
@@ -142,6 +181,8 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn
+brushBtn.addEventListener('click', stopSpray);
+sprayBtn.addEventListener('click', startSpray);
 color.addEventListener('change', changeColorHandler);
 eraserBtn.addEventListener('click', eraserHandler);
 clearBtn.addEventListener('click', clearHandler);

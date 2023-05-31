@@ -1,11 +1,18 @@
 'use strict';
 
+// set canvas & ctx
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
 /** ************************* */
 /**         variable          */
 /** ************************* */
 
 let isDrawing = false;
 let isSpray = false; // spray
+
+let undoList = [];
+let redoList = [];
 
 /** ************************* */
 /**         constant          */
@@ -29,14 +36,12 @@ const saveBtn = document.getElementById('save');
 const uploadBtn = document.getElementById('upload');
 const sprayBtn = document.getElementById('spray');
 const brushBtn = document.getElementById('brush');
+const undoBtn = document.getElementById('undo');
+const redoBtn = document.getElementById('redo');
 
 /** ************************* */
-/**           canvas          */
+/**           setting          */
 /** ************************* */
-
-// set canvas & ctx
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
@@ -66,8 +71,10 @@ function startDrawing() {
   isDrawing = true;
 }
 
-function stopDrawing() {
+function stopDrawing(e) {
   isDrawing = false;
+  if (e.type !== 'mouseleave') saveHistory();
+  console.log(e.type);
 }
 
 function moveBrush(e) {
@@ -170,6 +177,35 @@ function selectColorOptionHandler(e) {
   color.value = colorOption;
 }
 
+function saveHistory() {
+  // for undoList
+  const historyData = ctx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  undoList.push(historyData);
+}
+
+function undoHandler() {
+  if (undoList.length === 0) {
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillStyle = COLOR_WHITE;
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fill();
+    console.log('뒤로갈 데이터가 더이상 업슴!');
+  } else {
+    ctx.putImageData(undoList[undoList.length - 1], 0, 0);
+    redoList.push(undoList.pop());
+    console.log('undo 성공!');
+  }
+}
+
+function redoHandler() {
+  if (redoList.length === 0) {
+    return; // no data.
+  } else {
+    ctx.putImageData(redoList[redoList.length - 1], 0, 0);
+    undoList.push(redoList.pop());
+  }
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -181,6 +217,8 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn
+undoBtn.addEventListener('click', undoHandler);
+redoBtn.addEventListener('click', redoHandler);
 brushBtn.addEventListener('click', stopSpray);
 sprayBtn.addEventListener('click', startSpray);
 color.addEventListener('change', changeColorHandler);

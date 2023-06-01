@@ -147,10 +147,7 @@ function fillHandler() {
 function clearHandler() {
   if (confirm('Do you want All Clear ?')) {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-    // clear -> auto fill
-    ctx.fillStyle = COLOR_WHITE;
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    autoWhiteBack();
   }
 }
 

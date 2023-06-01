@@ -1,6 +1,66 @@
 @import url(default.css);
 
+canvas {
+  border: 1px solid black;
+}
+
 .color-option {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5rem;
+}
+
+/**/
+
+.wrap {
+  height: 100%;
+  width: 100%;
+  background-color: palevioletred;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  height: 93%;
+  background-color: lightgreen;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+/* inputs */
+.input-file {
+}
+
+.input-file-label {
+  display: block;
+}
+
+/* option container */
+
+/* input color border */
+.input-color {
+  width: 5rem;
+  height: 7rem;
+
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+
+.input-color::-webkit-color-swatch {
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.color-option {
+  cursor: pointer;
 }

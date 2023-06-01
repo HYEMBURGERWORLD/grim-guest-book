@@ -38,6 +38,7 @@ const sprayBtn = document.getElementById('spray');
 const brushBtn = document.getElementById('brush');
 const undoBtn = document.getElementById('undo');
 const redoBtn = document.getElementById('redo');
+const sizeBtn = document.getElementById('size');
 
 /** ************************* */
 /**           setting          */
@@ -205,6 +206,11 @@ function redoHandler() {
   }
 }
 
+function changeSizeHandler(e) {
+  const size = e.target.value;
+  ctx.lineWidth = size;
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -216,6 +222,7 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn
+sizeBtn.addEventListener('change', changeSizeHandler);
 undoBtn.addEventListener('click', undoHandler);
 redoBtn.addEventListener('click', redoHandler);
 brushBtn.addEventListener('click', stopSpray);

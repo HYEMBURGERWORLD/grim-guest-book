@@ -21,8 +21,8 @@ let redoList = [];
 const COLOR_WHITE = 'white';
 const BRUSH_SHAPE = 'round';
 
-const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 500;
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 800;
 
 // color
 const color = document.getElementById('color');
@@ -46,11 +46,6 @@ const redoBtn = document.getElementById('redo');
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
-// auto fill white (background color is white!)
-ctx.fillStyle = COLOR_WHITE;
-ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-ctx.fill();
-
 // brush shape (default is round pen)
 ctx.lineCap = BRUSH_SHAPE;
 ctx.lineJoin = BRUSH_SHAPE;
@@ -63,9 +58,19 @@ ctx.lineWidth = brushSize;
 const brushColor = document.getElementById('color').value;
 ctx.strokeStyle = brushColor;
 
+// auto fill white (background color is white!)
+const autoWhiteBack = () => {
+  ctx.fillStyle = COLOR_WHITE;
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+};
+
 /** ************************* */
 /**         function          */
 /** ************************* */
+
+// default background color
+autoWhiteBack();
+
 // Drawing now?
 function startDrawing() {
   isDrawing = true;
@@ -74,7 +79,6 @@ function startDrawing() {
 function stopDrawing(e) {
   isDrawing = false;
   if (e.type !== 'mouseleave') saveHistory();
-  console.log(e.type);
 }
 
 function moveBrush(e) {
@@ -136,8 +140,7 @@ function changeColorHandler(e) {
 
 function fillHandler() {
   ctx.fillStyle = color.value;
-  ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  ctx.fill();
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 }
 
 function clearHandler() {
@@ -146,8 +149,7 @@ function clearHandler() {
 
     // clear -> auto fill
     ctx.fillStyle = COLOR_WHITE;
-    ctx.fillRect = (0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.fill();
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   }
 }
 
@@ -185,10 +187,7 @@ function saveHistory() {
 
 function undoHandler() {
   if (undoList.length === 0) {
-    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.fillStyle = COLOR_WHITE;
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.fill();
+    autoWhiteBack();
     console.log('뒤로갈 데이터가 더이상 업슴!');
   } else {
     ctx.putImageData(undoList[undoList.length - 1], 0, 0);

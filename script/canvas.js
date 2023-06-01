@@ -171,7 +171,7 @@ function uploadComImgHandler(e) {
 }
 
 function selectColorOptionHandler(e) {
-  const colorOption = e.target.dateset.color;
+  const colorOption = e.target.dataset.color;
   ctx.fillStyle = colorOption;
   ctx.strokeStyle = colorOption;
   color.value = colorOption;

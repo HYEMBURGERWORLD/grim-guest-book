@@ -147,8 +147,10 @@ function fillHandler() {
 
 function clearHandler() {
   if (confirm('Do you want All Clear ?')) {
+    ctx.globalAlpha = 1;
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     autoWhiteBack();
+    ctx.globalAlpha = opacityBtn.value;
   }
 }
 

@@ -39,6 +39,7 @@ const brushBtn = document.getElementById('brush');
 const undoBtn = document.getElementById('undo');
 const redoBtn = document.getElementById('redo');
 const sizeBtn = document.getElementById('size');
+const opacityBtn = document.getElementById('opacity');
 
 /** ************************* */
 /**           setting          */
@@ -208,6 +209,11 @@ function changeSizeHandler(e) {
   ctx.lineWidth = size;
 }
 
+function opacityHandler(e) {
+  const opacity = e.target.value;
+  ctx.globalAlpha = Number(opacity);
+}
+
 /** ************************* */
 /**       event listner       */
 /** ************************* */
@@ -219,6 +225,7 @@ canvas.addEventListener('mouseleave', stopDrawing);
 canvas.addEventListener('mousemove', moveBrush);
 
 // btn
+opacityBtn.addEventListener('change', opacityHandler);
 sizeBtn.addEventListener('change', changeSizeHandler);
 undoBtn.addEventListener('click', undoHandler);
 redoBtn.addEventListener('click', redoHandler);

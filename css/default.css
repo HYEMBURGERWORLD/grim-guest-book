@@ -19,6 +19,10 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+header {
+  color: white;
+}
+
 .fc {
   display: flex;
   justify-content: center;

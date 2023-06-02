@@ -9,11 +9,43 @@
     <script src="script/key.js" defer></script>
     <script src="script/weather.js" defer></script>
     <script src="script/date.js" defer></script>
+    <script src="script/modal.js" defer></script>
     <!--icon-->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Canvas</title>
   </head>
   <body>
+    <div class="modal hidden" id="modal">
+      <div class="modal-box col">
+        <button class="close-modal">X</button>
+        <span>if you want to record...</span>
+        <input type="password" class="input-pw" id="pw" placeholder="password" />
+        <table class="pw-table">
+          <tr>
+            <td class="pw-num" data-pw="1">1</td>
+            <td class="pw-num" data-pw="2">2</td>
+            <td class="pw-num" data-pw="3">3</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="4">4</td>
+            <td class="pw-num" data-pw="5">5</td>
+            <td class="pw-num" data-pw="6">6</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="7">7</td>
+            <td class="pw-num" data-pw="8">8</td>
+            <td class="pw-num" data-pw="9">9</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="*">*</td>
+            <td class="pw-num" data-pw="0">0</td>
+            <td class="pw-num" data-pw="#">#</td>
+          </tr>
+        </table>
+        <button class="btn" id="confirm">CONFIRM</button>
+      </div>
+    </div>
+
     <div class="wrap">
       <!-- <h1>Please record the 'grim' message!</h1> -->
       <header class="header">

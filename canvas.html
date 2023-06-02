@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="script/canvas.js" defer></script>
+    <!--icon-->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Canvas</title>
   </head>
   <body>
@@ -20,37 +22,7 @@
       </header>
 
       <main class="main fc">
-        <div class="option-container">
-          <!-- inputs -->
-          <label for="upload" class="input-label">
-            image upload!
-            <input type="file" id="upload" class="input-file hidden" />
-          </label>
-          <label for="size" class="input-label"
-            >brush size
-            <input
-              type="range"
-              id="size"
-              class="input-range"
-              min="1"
-              max="10"
-              value="5"
-              step="0.1"
-            />
-          </label>
-          <label for="opacity" class="input-label">
-            Opacity
-            <input
-              type="range"
-              id="opacity"
-              class="input-range"
-              min="0"
-              max="1"
-              value="1"
-              step="0.1"
-            />
-          </label>
-
+        <div class="option-container col">
           <!--color options-->
           <div class="color-box fc">
             <div class="color-options">
@@ -88,19 +60,68 @@
             <input type="color" id="color" class="input-color" />
           </div>
 
+          <!-- inputs -->
+          <label for="upload" class="btn fc input-label">
+            image upload!
+            <input type="file" id="upload" class="input-file hidden" />
+          </label>
+
+          <div class="input-box">
+            <label for="size" class="input-label">Brush size</label>
+            <input
+              type="range"
+              id="size"
+              class="input-range"
+              min="1"
+              max="10"
+              value="5"
+              step="0.1"
+            />
+          </div>
+          <div class="input-box">
+            <label for="opacity" class="input-label">Opacity</label>
+            <input
+              type="range"
+              id="opacity"
+              class="input-range"
+              min="0"
+              max="1"
+              value="1"
+              step="0.1"
+            />
+          </div>
+
           <!--btns-->
           <div class="btn-box col">
-            <button class="btn btn-canvas" id="brush">Brush</button>
-            <button class="btn btn-canvas" id="spray">Spray</button>
-            <button class="btn btn-canvas" id="eraser">Eraser</button>
-            <button class="btn btn-canvas" id="fill">Fill</button>
-            <div class="btn btn-do-box">
-              <button class="btn-canvas" id="undo">Undo</button>
-              <button class="btn-canvas" id="redo">Redo</button>
+            <button class="btn fc" id="brush">
+              <i class="ph-fill ph-paint-brush"></i> <span>Brush</span>
+            </button>
+            <button class="btn fc" id="spray">
+              <i class="ph-fill ph-shooting-star"></i><span>Spray</span>
+            </button>
+            <button class="btn fc" id="eraser">
+              <i class="ph-fill ph-eraser"></i> <span>Erase</span>
+            </button>
+            <button class="btn fc" id="fill">
+              <i class="ph-fill ph-paint-bucket"></i> <span>Fill</span>
+            </button>
+            <div class="btn-do-box fc">
+              <button class="btn fc" id="undo">
+                <i class="ph-fill ph-arrow-counter-clockwise"></i> <span>Undo</span>
+              </button>
+              <button class="btn fc" id="redo">
+                <i class="ph-fill ph-arrow-clockwise"></i> <span>Redo</span>
+              </button>
             </div>
-            <button class="btn btn-canvas" id="clear">Clear</button>
-            <button class="btn btn-canvas" id="save">Save</button>
-            <button class="btn btn-canvas" id="record">Record</button>
+            <button class="btn fc" id="clear">
+              <i class="ph-fill ph-broom"></i> <span>Clear</span>
+            </button>
+            <button class="btn fc" id="save">
+              <i class="ph-fill ph-download"></i> <span>Save</span>
+            </button>
+            <button class="btn fc btn-record" id="record">
+              <i class="ph-fill ph-archive"></i><span>Record</span>
+            </button>
           </div>
         </div>
 

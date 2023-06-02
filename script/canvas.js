@@ -8,6 +8,8 @@ const ctx = canvas.getContext('2d');
 /**         variable          */
 /** ************************* */
 
+let recordStorage = [];
+
 let isDrawing = false;
 let isSpray = false; // spray
 
@@ -23,6 +25,8 @@ const BRUSH_SHAPE = 'round';
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 800;
+
+const modal = document.getElementById('modal');
 
 // color
 const color = document.getElementById('color');
@@ -40,6 +44,7 @@ const undoBtn = document.getElementById('undo');
 const redoBtn = document.getElementById('redo');
 const sizeBtn = document.getElementById('size');
 const opacityBtn = document.getElementById('opacity');
+const recordBtn = document.getElementById('record');
 
 /** ************************* */
 /**           setting          */
@@ -65,6 +70,36 @@ const autoWhiteBack = () => {
   ctx.fillStyle = COLOR_WHITE;
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 };
+
+/** ************************* */
+/**      local Storage        */
+/** ************************* */
+
+function confirmRecord() {
+  if (confirm('do you want to record?')) {
+    modal.classList.remove('hidden');
+    const confirmBtn = document.getElementById('confirm');
+    confirmBtn.addEventListener('click', recordInGuestBook);
+  }
+}
+
+function recordInGuestBook(e) {
+  e.preventDefault();
+  const url = canvas.toDataURL();
+  const pw = document.getElementById('pw');
+  const obj = {
+    img: url,
+    date: new Date(),
+    id: Date.now(),
+    pw: pw.value,
+  };
+  recordStorage.push(obj);
+  localStorage.setItem('record', JSON.stringify(recordStorage));
+
+  pw.value = '';
+  modal.classList.add('hidden');
+  autoWhiteBack();
+}
 
 /** ************************* */
 /**         function          */
@@ -242,3 +277,6 @@ uploadBtn.addEventListener('change', uploadComImgHandler);
 colorOptions.forEach((colorOption) => {
   colorOption.addEventListener('click', selectColorOptionHandler);
 });
+
+// record
+recordBtn.addEventListener('click', confirmRecord);

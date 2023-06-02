@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +16,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  font-family: 'Rubik', sans-serif;
 }
 
 .fc {
@@ -29,4 +32,30 @@ body {
 
 .hidden {
   display: none;
+}
+
+.input-range {
+  width: 100%;
+}
+
+.btn {
+  padding: 1.2rem 2.4rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 1.8rem;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  background-color: white;
+  border: 3px solid #1971c2;
+  color: #1971c2;
+  transition: all 0.5s;
+  gap: 0.4rem;
+}
+
+.btn:hover {
+  background-color: #1971c2;
+  color: white;
+  border: 3px solid white;
 }

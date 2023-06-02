@@ -23,6 +23,16 @@ header {
   color: white;
 }
 
+a {
+  text-decoration: none;
+  color: #1864ab;
+  font-weight: 400;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .fc {
   display: flex;
   justify-content: center;

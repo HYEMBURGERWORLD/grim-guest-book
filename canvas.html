@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="script/canvas.js" defer></script>
+    <script src="script/key.js" defer></script>
+    <script src="script/weather.js" defer></script>
+    <script src="script/date.js" defer></script>
     <!--icon-->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Canvas</title>
@@ -14,10 +17,16 @@
     <div class="wrap">
       <!-- <h1>Please record the 'grim' message!</h1> -->
       <header class="header">
-        <div class="logo">grim</div>
-        <div class="">
-          <div class="clock">00:00</div>
-          <div class="weather">구름</div>
+        <div class="logo">
+          <span class="header-span">GRIM</span>
+        </div>
+        <div class="fc header-box">
+          <div class="date">
+            <span class="header-span" id="date"></span>
+          </div>
+          <div class="weather">
+            <span class="header-span" id="weather"></span>
+          </div>
         </div>
       </header>
 
@@ -122,13 +131,13 @@
             <button class="btn fc btn-record" id="record">
               <i class="ph-fill ph-archive"></i><span>Record</span>
             </button>
+            <div class="link-box">
+              <a href="index.html">back</a>
+            </div>
           </div>
         </div>
 
         <div class="canvas-contaier">
-          <div class="link-box">
-            <a href="index.html">back</a>
-          </div>
           <canvas id="canvas"></canvas>
         </div>
       </main>

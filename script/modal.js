@@ -1,5 +1,14 @@
 'use strict';
 const pwNum = Array.from(document.getElementsByClassName('pw-num'));
+const modal = document.getElementById('modal');
+
+function onModal() {
+  modal.classList.remove('hidden');
+}
+
+function offModal() {
+  modal.classList.add('hidden');
+}
 
 function whatNumber(e) {
   const num = e.target.dataset.pw;

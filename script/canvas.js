@@ -26,8 +26,6 @@ const BRUSH_SHAPE = 'round';
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 800;
 
-const modal = document.getElementById('modal');
-
 // color
 const color = document.getElementById('color');
 const colorOptions = Array.from(document.getElementsByClassName('color-option'));
@@ -77,7 +75,7 @@ const autoWhiteBack = () => {
 
 function confirmRecord() {
   if (confirm('do you want to record?')) {
-    modal.classList.remove('hidden');
+    onModal();
     const confirmBtn = document.getElementById('confirm');
     confirmBtn.addEventListener('click', recordInGuestBook);
   }
@@ -97,7 +95,7 @@ function recordInGuestBook(e) {
   localStorage.setItem('record', JSON.stringify(recordStorage));
 
   pw.value = '';
-  modal.classList.add('hidden');
+  offModal();
   autoWhiteBack();
 }
 

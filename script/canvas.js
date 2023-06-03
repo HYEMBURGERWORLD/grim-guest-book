@@ -8,7 +8,10 @@ const ctx = canvas.getContext('2d');
 /**         variable          */
 /** ************************* */
 
-let recordStorage = [];
+let recordStorage =
+  JSON.parse(localStorage.getItem('record')).length === 0
+    ? []
+    : JSON.parse(localStorage.getItem('record'));
 
 let isDrawing = false;
 let isSpray = false; // spray

@@ -186,4 +186,47 @@ canvas {
   border: none;
   background-color: transparent;
   font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* guestbook */
+.record-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.2rem;
+  margin-top: 12.8rem;
+  width: 55%;
+  height: 80%;
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 2rem;
+}
+
+.record {
+  width: 50rem;
+  height: 50rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.del-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.8rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.record-img {
+  transition: all 0.5s;
+}
+
+.record-img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }

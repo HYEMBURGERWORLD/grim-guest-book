@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/query.css" />
     <script src="script/canvas.js" defer></script>
     <!--API-->
     <script src="script/key.js" defer></script>
@@ -34,53 +35,55 @@
       </header>
 
       <main class="main fc">
-        <div class="option-container col">
-          <!--color options-->
-          <div class="color-box fc">
-            <div class="color-options">
-              <div
+        <div class="main-container">
+
+          <div class="option-container col">
+            <!--color options-->
+            <div class="color-box fc">
+              <div class="color-options">
+                <div
                 class="color-option"
                 style="background-color: #fa5252"
                 data-color="#fa5252"
-              ></div>
-              <div
+                ></div>
+                <div
                 class="color-option"
                 style="background-color: #f59f00"
                 data-color="#f59f00"
-              ></div>
-              <div
+                ></div>
+                <div
                 class="color-option"
                 style="background-color: #82c91e"
                 data-color="#82c91e"
-              ></div>
-              <div
+                ></div>
+                <div
                 class="color-option"
                 style="background-color: #12b886"
                 data-color="#12b886"
-              ></div>
-              <div
+                ></div>
+                <div
                 class="color-option"
                 style="background-color: #228be6"
                 data-color="#228be6"
-              ></div>
-              <div
+                ></div>
+                <div
                 class="color-option"
                 style="background-color: #7950f2"
                 data-color="#7950f2"
-              ></div>
+                ></div>
+              </div>
+              <input type="color" id="color" class="input-color" />
             </div>
-            <input type="color" id="color" class="input-color" />
-          </div>
-
-          <!-- inputs -->
-          <label for="upload" class="btn fc input-label">
-            image upload!
-            <input type="file" id="upload" class="input-file hidden" />
-          </label>
-
-          <div class="input-box">
-            <label for="size" class="input-label">Brush size</label>
-            <input
+            
+            <!-- inputs -->
+            <label for="upload" class="btn fc input-label">
+              image upload!
+              <input type="file" id="upload" class="input-file hidden" />
+            </label>
+            
+            <div class="input-box">
+              <label for="size" class="input-label">Brush size</label>
+              <input
               type="range"
               id="size"
               class="input-range"
@@ -88,11 +91,11 @@
               max="10"
               value="5"
               step="0.1"
-            />
-          </div>
-          <div class="input-box">
-            <label for="opacity" class="input-label">Opacity</label>
-            <input
+              />
+            </div>
+            <div class="input-box">
+              <label for="opacity" class="input-label">Opacity</label>
+              <input
               type="range"
               id="opacity"
               class="input-range"
@@ -100,80 +103,81 @@
               max="1"
               value="1"
               step="0.1"
-            />
+              />
+            </div>
+            
+            <!--btns-->
+            <div class="btn-box col">
+              <button class="btn fc" id="brush">
+                <i class="ph-fill ph-paint-brush"></i> <span>Brush</span>
+              </button>
+              <button class="btn fc" id="spray">
+                <i class="ph-fill ph-shooting-star"></i><span>Spray</span>
+              </button>
+              <button class="btn fc" id="eraser">
+                <i class="ph-fill ph-eraser"></i> <span>Erase</span>
+              </button>
+              <button class="btn fc" id="fill">
+                <i class="ph-fill ph-paint-bucket"></i> <span>Fill</span>
+              </button>
+              <div class="btn-do-box fc">
+                <button class="btn fc" id="undo">
+                  <i class="ph-fill ph-arrow-counter-clockwise"></i> <span>Undo</span>
+                </button>
+                <button class="btn fc" id="redo">
+                  <i class="ph-fill ph-arrow-clockwise"></i> <span>Redo</span>
+                </button>
+              </div>
+              <button class="btn fc" id="clear">
+                <i class="ph-fill ph-broom"></i> <span>Clear</span>
+              </button>
+              <button class="btn fc" id="save">
+                <i class="ph-fill ph-download"></i> <span>Save</span>
+              </button>
+              <button class="btn fc btn-record" id="record">
+                <i class="ph-fill ph-archive"></i><span>Record</span>
+              </button>
+              <div class="link-box canvas-link">
+                <a href="index.html">go to guestbook</a>
+              </div>
+            </div>
           </div>
-
-          <!--btns-->
-          <div class="btn-box col">
-            <button class="btn fc" id="brush">
-              <i class="ph-fill ph-paint-brush"></i> <span>Brush</span>
-            </button>
-            <button class="btn fc" id="spray">
-              <i class="ph-fill ph-shooting-star"></i><span>Spray</span>
-            </button>
-            <button class="btn fc" id="eraser">
-              <i class="ph-fill ph-eraser"></i> <span>Erase</span>
-            </button>
-            <button class="btn fc" id="fill">
-              <i class="ph-fill ph-paint-bucket"></i> <span>Fill</span>
-            </button>
-            <div class="btn-do-box fc">
-              <button class="btn fc" id="undo">
-                <i class="ph-fill ph-arrow-counter-clockwise"></i> <span>Undo</span>
-              </button>
-              <button class="btn fc" id="redo">
-                <i class="ph-fill ph-arrow-clockwise"></i> <span>Redo</span>
-              </button>
-            </div>
-            <button class="btn fc" id="clear">
-              <i class="ph-fill ph-broom"></i> <span>Clear</span>
-            </button>
-            <button class="btn fc" id="save">
-              <i class="ph-fill ph-download"></i> <span>Save</span>
-            </button>
-            <button class="btn fc btn-record" id="record">
-              <i class="ph-fill ph-archive"></i><span>Record</span>
-            </button>
-            <div class="link-box">
-              <a href="index.html">go to guestbook</a>
-            </div>
+          
+          <div class="canvas-contaier">
+            <canvas id="canvas"></canvas>
           </div>
         </div>
-
-        <div class="canvas-contaier">
-          <canvas id="canvas"></canvas>
-        </div>
-      </main>
-    </div>
 
     <!-- modal -->
     <div class="modal hidden" id="modal">
       <div class="modal-box col">
         <button class="close-modal" id="close">X</button>
-        <span>if you want to record...</span>
-        <input type="password" class="input-pw" id="pw" placeholder="password" />
-        <table class="pw-table">
-          <tr>
-            <td class="pw-num" data-pw="1">1</td>
-            <td class="pw-num" data-pw="2">2</td>
-            <td class="pw-num" data-pw="3">3</td>
-          </tr>
-          <tr>
-            <td class="pw-num" data-pw="4">4</td>
-            <td class="pw-num" data-pw="5">5</td>
-            <td class="pw-num" data-pw="6">6</td>
-          </tr>
-          <tr>
-            <td class="pw-num" data-pw="7">7</td>
-            <td class="pw-num" data-pw="8">8</td>
-            <td class="pw-num" data-pw="9">9</td>
-          </tr>
-          <tr>
-            <td class="pw-num" data-pw="*">*</td>
-            <td class="pw-num" data-pw="0">0</td>
-            <td class="pw-num" data-pw="#">#</td>
-          </tr>
-        </table>
+        <span class='modal-text'>Set the password</span>
+        <div class="modal-pw-box" id='modalBox'>
+          <input type="password" class="input-pw" id="pw" placeholder="password" />
+          <table class="pw-table" id="pwTable">
+            <tr>
+              <td class="pw-num" data-pw="1">1</td>
+              <td class="pw-num" data-pw="2">2</td>
+              <td class="pw-num" data-pw="3">3</td>
+            </tr>
+            <tr>
+              <td class="pw-num" data-pw="4">4</td>
+              <td class="pw-num" data-pw="5">5</td>
+              <td class="pw-num" data-pw="6">6</td>
+            </tr>
+            <tr>
+              <td class="pw-num" data-pw="7">7</td>
+              <td class="pw-num" data-pw="8">8</td>
+              <td class="pw-num" data-pw="9">9</td>
+            </tr>
+            <tr>
+              <td class="pw-num" data-pw="*">*</td>
+              <td class="pw-num" data-pw="0">0</td>
+              <td class="pw-num" data-pw="#">#</td>
+            </tr>
+          </table>
+        </div>
         <button class="btn" id="confirm">CONFIRM</button>
       </div>
     </div>

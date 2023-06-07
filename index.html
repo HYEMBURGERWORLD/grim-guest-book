@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/query.css" />
     <script src="script/guestbook.js" defer></script>
     <!--API-->
     <script src="script/key.js" defer></script>
@@ -12,6 +13,8 @@
     <script src="script/date.js" defer></script>
     <!--modal-->
     <script src="script/modal.js" defer></script>
+    <!--icon-->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Welcome to Grim guestbook!</title>
   </head>
   <body>
@@ -34,7 +37,9 @@
         <div class="link-box">
           <a href="canvas.html">go to Canvas</a>
         </div>
-        <ul class="record-list" id="records"></ul>
+        <div class="record-box fc">
+          <ul class="record-list" id="records"></ul>
+        </div>
       </main>
     </div>
 
@@ -42,7 +47,7 @@
     <div class="modal hidden" id="modal">
       <div class="modal-box col">
         <button class="close-modal" id="close">X</button>
-        <span>password?</span>
+        <span class="modal-text" id="text"></span>
         <input type="password" class="input-pw" id="pw" placeholder="password" />
         <table class="pw-table">
           <tr>

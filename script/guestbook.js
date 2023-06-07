@@ -10,7 +10,7 @@ function createHtmlElement(record) {
 
   img.id = record.id;
   img.src = record.img;
-  button.innerHTML = '<i class="ph-fill ph-trash-simple"></i>';
+  button.innerHTML = '<i class="ph-bold ph-x"></i>';
 
   li.classList.add('record');
   img.classList.add('record-img');
@@ -46,9 +46,9 @@ function checkPw(pw, id, li) {
   confirmPw.addEventListener('click', () => {
     const inputPw = document.getElementById('pw');
     if (inputPw.value === pw) {
-      li.remove();
       record = record.filter((img) => img.id !== Number(id));
       delStorage();
+      li.remove();
       inputPw.value = '';
       toggleModal();
     } else {

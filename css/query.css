@@ -1,0 +1,133 @@
+@media (max-width: 156.7rem) {
+  .record {
+    width: 50rem;
+    height: 50rem;
+  }
+
+  .header-span {
+    font-size: 2rem;
+  }
+
+  .header-span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 122.4rem) {
+  .record {
+    width: 40rem;
+    height: 40rem;
+  }
+}
+
+@media (max-width: 98.9rem) {
+  .record-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 67.5rem) {
+  .btn {
+    padding: 0.8rem;
+    font-size: 1.8rem;
+  }
+
+  .canvas-contaier {
+    margin-top: 0;
+  }
+
+  .canvas-link {
+    font-size: 1.8rem;
+  }
+
+  .btn-record {
+    padding: 2.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 66rem) {
+  .record-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .header-span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 58.4rem) {
+  .option-container {
+    width: 85%;
+  }
+
+  .main-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .btn {
+    height: 4rem;
+  }
+
+  .btn-record {
+    margin-top: 0;
+    grid-column: 2 / -1;
+    padding: 1.6rem;
+  }
+  .canvas-link {
+    grid-column: 2/-1;
+  }
+
+  .color-options {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .color-option {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .input-color {
+    width: 10rem;
+    height: 6rem;
+  }
+}
+
+@media (max-width: 32.8rem) {
+  .record {
+    width: 30rem;
+    height: 30rem;
+  }
+  .link-box {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 25.25rem) {
+  .record {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .record-list {
+    gap: 1.2rem;
+  }
+
+  .link-box {
+    font-size: 1.8rem;
+  }
+
+  .header-span {
+    font-size: 1.4rem;
+  }
+
+  .header {
+    padding: 2.4rem;
+  }
+}

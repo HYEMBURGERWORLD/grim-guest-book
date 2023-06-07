@@ -5,21 +5,6 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 /** ************************* */
-/**         variable          */
-/** ************************* */
-
-let recordStorage =
-  JSON.parse(localStorage.getItem('record')).length === 0
-    ? []
-    : JSON.parse(localStorage.getItem('record'));
-
-let isDrawing = false;
-let isSpray = false; // spray
-
-let undoList = [];
-let redoList = [];
-
-/** ************************* */
 /**         constant          */
 /** ************************* */
 
@@ -73,6 +58,21 @@ const autoWhiteBack = () => {
 };
 
 /** ************************* */
+/**         variable          */
+/** ************************* */
+
+let recordStorage =
+  JSON.parse(localStorage.getItem('record')) == null
+    ? []
+    : JSON.parse(localStorage.getItem('record'));
+
+let isDrawing = false;
+let isSpray = false; // spray
+
+let undoList = [];
+let redoList = [];
+
+/** ************************* */
 /**      local Storage        */
 /** ************************* */
 
@@ -99,11 +99,15 @@ function recordInGuestBook(e) {
   localStorage.setItem('record', JSON.stringify(recordStorage));
 
   pw.value = '';
-  // pw.classList.add('hidden');
-  // table.classList.add('hidden');
-
-  toggleModal();
   autoWhiteBack();
+
+  toggleModalBox();
+  const confirmBtn = document.getElementById('confirm');
+  confirmBtn.innerText = 'Go to Canvas';
+  confirmBtn.addEventListener('click', () => {
+    toggleModal();
+    location.href = 'index.html';
+  });
 }
 
 /** ************************* */
@@ -212,6 +216,7 @@ function uploadComImgHandler(e) {
     ctx.drawImage(img, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     uploadBtn.value = '';
   };
+  saveHistory();
 }
 
 function selectColorOptionHandler(e) {

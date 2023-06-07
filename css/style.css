@@ -39,6 +39,11 @@ canvas {
   font-weight: 600;
 }
 
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
 /* main */
 .main-container {
   display: flex;
@@ -138,6 +143,16 @@ canvas {
   text-align: center;
 }
 
+.link-box a {
+  text-decoration: none;
+  color: #1864ab;
+  font-weight: 400;
+}
+
+.link-box a:hover {
+  text-decoration: underline;
+}
+
 /* modal */
 .modal {
   position: absolute;
@@ -153,7 +168,7 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30rem;
+  width: 40rem;
   padding: 3.6rem 7.2rem;
   border-radius: 2rem;
   background-color: white;
@@ -163,8 +178,6 @@ canvas {
 }
 
 .modal-pw-box {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.8rem;
 }
@@ -224,6 +237,7 @@ canvas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.2rem;
+  height: 100%;
   list-style-type: none;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -237,20 +251,20 @@ canvas {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-  /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .del-btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
+  /* transform: translate(-50%, -50%); */
   font-size: 3.6rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  /* color: white; */
+  color: #1864ab;
 }
 
 .record-img {
@@ -260,5 +274,4 @@ canvas {
 
 .record-img:hover {
   transform: scale(1.2);
-  filter: brightness(50%);
 }

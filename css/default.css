@@ -25,16 +25,6 @@ header {
   color: white;
 }
 
-a {
-  text-decoration: none;
-  color: #1864ab;
-  font-weight: 400;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 img {
   width: 100%;
 }
@@ -57,7 +47,7 @@ img {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .input-range {

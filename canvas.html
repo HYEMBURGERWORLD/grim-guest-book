@@ -22,7 +22,7 @@
       <!-- <h1>Please record the 'grim' message!</h1> -->
       <header class="header">
         <div class="logo">
-          <span class="header-span">GRIM</span>
+          <a href='index.html' class="header-span">GRIM</a>
         </div>
         <div class="fc header-box">
           <div class="date">
@@ -152,8 +152,8 @@
     <div class="modal hidden" id="modal">
       <div class="modal-box col">
         <button class="close-modal" id="close">X</button>
-        <span class='modal-text'>Set the password</span>
-        <div class="modal-pw-box" id='modalBox'>
+        <span class='modal-text' id='text'></span>
+        <div class="col hidden" id='modalBox'>
           <input type="password" class="input-pw" id="pw" placeholder="password" />
           <table class="pw-table" id="pwTable">
             <tr>
@@ -177,8 +177,9 @@
               <td class="pw-num" data-pw="#">#</td>
             </tr>
           </table>
+          <button class="btn" id="confirm">CONFIRM</button>
         </div>
-        <button class="btn" id="confirm">CONFIRM</button>
+        <button class="btn hidden" id="go">GO TO CANVAS</button>
       </div>
     </div>
   </body>

@@ -26,8 +26,8 @@ let redoList = [];
 const COLOR_WHITE = 'white';
 const BRUSH_SHAPE = 'round';
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 800;
+const CANVAS_WIDTH = 700;
+const CANVAS_HEIGHT = 700;
 
 // color
 const color = document.getElementById('color');
@@ -78,7 +78,7 @@ const autoWhiteBack = () => {
 
 function confirmRecord() {
   if (confirm('do you want to record?')) {
-    onModal();
+    toggleModal();
     const confirmBtn = document.getElementById('confirm');
     confirmBtn.addEventListener('click', recordInGuestBook);
   }
@@ -88,6 +88,7 @@ function recordInGuestBook(e) {
   e.preventDefault();
   const url = canvas.toDataURL();
   const pw = document.getElementById('pw');
+  const table = document.getElementById('pwTable');
   const obj = {
     img: url,
     date: new Date(),
@@ -98,7 +99,10 @@ function recordInGuestBook(e) {
   localStorage.setItem('record', JSON.stringify(recordStorage));
 
   pw.value = '';
-  offModal();
+  // pw.classList.add('hidden');
+  // table.classList.add('hidden');
+
+  toggleModal();
   autoWhiteBack();
 }
 
@@ -179,6 +183,7 @@ function changeColorHandler(e) {
 function fillHandler() {
   ctx.fillStyle = color.value;
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  saveHistory();
 }
 
 function clearHandler() {
@@ -191,7 +196,7 @@ function clearHandler() {
 }
 
 function saveComHandler() {
-  const url = canvas.toDateURL();
+  const url = canvas.toDataURL();
   const a = document.createElement('a');
   a.href = url;
   a.download = 'unknown.png';

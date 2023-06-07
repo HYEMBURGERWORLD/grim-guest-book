@@ -2,14 +2,12 @@
 const pwNum = Array.from(document.getElementsByClassName('pw-num'));
 const modal = document.getElementById('modal');
 
-function onModal() {
-  modal.classList.remove('hidden');
-  const close = document.getElementById('close');
-  close.addEventListener('click', offModal);
-}
-
-function offModal() {
-  modal.classList.add('hidden');
+function toggleModal() {
+  modal.classList.toggle('hidden');
+  if (!modal.classList.contains('hidden')) {
+    const close = document.getElementById('close');
+    close.addEventListener('click', toggleModal);
+  }
 }
 
 function whatNumber(e) {

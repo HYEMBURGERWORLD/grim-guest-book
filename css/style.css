@@ -6,14 +6,6 @@ canvas {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
-.color-option {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 5rem;
-}
-
-/**/
-
 .wrap {
   height: 100%;
   width: 100%;
@@ -24,7 +16,7 @@ canvas {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1.8rem 1rem;
+  padding: 3.8rem 3.2rem;
 }
 
 .main {
@@ -34,6 +26,7 @@ canvas {
   border-top-right-radius: 2rem;
   overflow: hidden;
   gap: 2rem;
+  justify-content: center;
 }
 
 /* header */
@@ -42,17 +35,21 @@ canvas {
 }
 
 .header-span {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 600;
 }
 
-/* inputs */
-.input-file {
+/* main */
+.main-container {
+  display: flex;
+  gap: 2rem;
+  height: 80%;
 }
 
+/* inputs */
 .input-label {
   display: block;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -60,6 +57,10 @@ canvas {
 /* option container */
 .option-container {
   gap: 1rem;
+}
+
+.canvas-contaier {
+  margin-top: 9.6rem;
 }
 
 /* input color border */
@@ -83,17 +84,20 @@ canvas {
 }
 
 .color-box {
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .color-options {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   justify-content: center;
   gap: 0.5rem;
 }
 
 .color-option {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5rem;
   border: 3px solid white;
   cursor: pointer;
   transition: all 0.3s;
@@ -127,7 +131,8 @@ canvas {
 }
 
 .link-box {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+  margin-top: 0.8rem;
   text-transform: uppercase;
   gap: 0.2rem;
   text-align: center;
@@ -148,13 +153,26 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 28rem;
+  width: 30rem;
   padding: 3.6rem 7.2rem;
   border-radius: 2rem;
   background-color: white;
   border: 3px solid #1971c2;
   justify-content: center;
   align-items: center;
+}
+
+.modal-pw-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.modal-text {
+  padding: 0.8rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .input-pw {
@@ -170,18 +188,24 @@ canvas {
   font-size: 3.6rem;
 }
 
-.pw-table td {
-  border: 1px solid rgba(128, 128, 128, 0.7);
+.pw-num {
+  border: 2px solid rgba(128, 128, 128, 0.7);
   border-radius: 1rem;
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
 }
 
-.pw-table td:hover {
+.pw-num:hover {
+  border: 2px solid #1864ab;
+  color: #1864ab;
 }
 
 .close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
   padding: 0.4rem 0.8rem;
   border: none;
   background-color: transparent;
@@ -190,13 +214,16 @@ canvas {
 }
 
 /* guestbook */
+.record-box {
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+}
+
 .record-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.2rem;
-  margin-top: 12.8rem;
-  width: 55%;
-  height: 80%;
   list-style-type: none;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -205,28 +232,33 @@ canvas {
 }
 
 .record {
-  width: 50rem;
-  height: 50rem;
+  width: 65rem;
+  height: 65rem;
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
 }
 
 .del-btn {
   position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1.8rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.6rem;
   padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  /* color: white; */
 }
 
 .record-img {
-  transition: all 0.5s;
+  transition: all 1s;
+  cursor: pointer;
 }
 
 .record-img:hover {
   transform: scale(1.2);
-  cursor: pointer;
+  filter: brightness(50%);
 }

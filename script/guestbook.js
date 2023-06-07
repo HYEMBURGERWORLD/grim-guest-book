@@ -51,6 +51,7 @@ function checkPw(pw, id, li) {
       li.remove();
       inputPw.value = '';
       toggleModal();
+      window.location.reload();
     } else {
       inputPw.value = '';
       text.innerText = 'password is wrong!';

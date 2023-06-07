@@ -14,6 +14,8 @@ const BRUSH_SHAPE = 'round';
 const CANVAS_WIDTH = 700;
 const CANVAS_HEIGHT = 700;
 
+const text = document.getElementById('text');
+
 // color
 const color = document.getElementById('color');
 const colorOptions = Array.from(document.getElementsByClassName('color-option'));
@@ -78,8 +80,11 @@ let redoList = [];
 
 function confirmRecord() {
   if (confirm('do you want to record?')) {
+    toggleModalBox();
     toggleModal();
     const confirmBtn = document.getElementById('confirm');
+    text.innerText = 'Set the password';
+    confirmBtn.innerText = 'CONFIRM';
     confirmBtn.addEventListener('click', recordInGuestBook);
   }
 }
@@ -88,7 +93,6 @@ function recordInGuestBook(e) {
   e.preventDefault();
   const url = canvas.toDataURL();
   const pw = document.getElementById('pw');
-  const table = document.getElementById('pwTable');
   const obj = {
     img: url,
     date: new Date(),
@@ -102,9 +106,10 @@ function recordInGuestBook(e) {
   autoWhiteBack();
 
   toggleModalBox();
-  const confirmBtn = document.getElementById('confirm');
-  confirmBtn.innerText = 'Go to Canvas';
-  confirmBtn.addEventListener('click', () => {
+  const goBtn = document.getElementById('go');
+  text.innerText = 'I recorded your wonderful painting!';
+  goBtn.classList.toggle('hidden');
+  goBtn.addEventListener('click', () => {
     toggleModal();
     location.href = 'index.html';
   });

@@ -10,6 +10,11 @@ function toggleModal() {
   }
 }
 
+function toggleModalBox() {
+  const modalBox = document.getElementById('modalBox');
+  modalBox.classList.toggle('hidden');
+}
+
 function whatNumber(e) {
   const num = e.target.dataset.pw;
   const input = document.getElementById('pw');

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/query.css" />
+    <script src="script/guestbook.js" defer></script>
+    <!--API-->
+    <script src="script/key.js" defer></script>
+    <script src="script/weather.js" defer></script>
+    <script src="script/date.js" defer></script>
+    <!--modal-->
+    <script src="script/modal.js" defer></script>
+    <!--icon-->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Welcome to Grim guestbook!</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div class="logo">
+          <a href="index.html" class="header-span">GRIM</a>
+        </div>
+        <div class="fc header-box">
+          <div class="date">
+            <span class="header-span" id="date"></span>
+          </div>
+          <div class="weather">
+            <span class="header-span" id="weather"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="main col-c">
+        <div class="link-box">
+          <a href="index.html">go to Canvas</a>
+        </div>
+        <div class="record-box fc">
+          <ul class="record-list" id="records"></ul>
+        </div>
+      </main>
+    </div>
+
+    <!-- modal -->
+    <div class="modal hidden" id="modal">
+      <div class="modal-box col">
+        <button class="close-modal" id="close">X</button>
+        <span class="modal-text" id="text"></span>
+        <input type="password" class="input-pw" id="pw" placeholder="password" />
+        <table class="pw-table">
+          <tr>
+            <td class="pw-num" data-pw="1">1</td>
+            <td class="pw-num" data-pw="2">2</td>
+            <td class="pw-num" data-pw="3">3</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="4">4</td>
+            <td class="pw-num" data-pw="5">5</td>
+            <td class="pw-num" data-pw="6">6</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="7">7</td>
+            <td class="pw-num" data-pw="8">8</td>
+            <td class="pw-num" data-pw="9">9</td>
+          </tr>
+          <tr>
+            <td class="pw-num" data-pw="*">*</td>
+            <td class="pw-num" data-pw="0">0</td>
+            <td class="pw-num" data-pw="#">#</td>
+          </tr>
+        </table>
+        <button class="btn" id="confirmPw">delete</button>
+      </div>
+    </div>
+  </body>
+</html>

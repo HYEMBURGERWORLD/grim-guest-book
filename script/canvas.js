@@ -111,7 +111,7 @@ function recordInGuestBook(e) {
   goBtn.classList.toggle('hidden');
   goBtn.addEventListener('click', () => {
     toggleModal();
-    location.href = 'index.html';
+    location.href = 'record.html';
   });
 }
 

@@ -230,7 +230,6 @@ canvas {
 .record-box {
   width: 80%;
   height: 80%;
-  overflow-y: scroll;
 }
 
 .record-list {
@@ -240,9 +239,13 @@ canvas {
   height: 100%;
   list-style-type: none;
   overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+  overflow-y: auto;
+  -ms-overflow-style: none;
   padding: 2rem;
+}
+
+.record-list::-webkit-scrollbar {
+  display: none;
 }
 
 .record {
